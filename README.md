@@ -33,6 +33,17 @@ Os temas são independentes: dá para abrir qualquer habilidade direto, sem prec
 
 Questões com texto que juntam várias habilidades, no estilo de concursos, ENEM e provas: custo de piso com desconto, latas de tinta para uma parede, conta de luz de um chuveiro, comprimento de rampa, área real a partir de uma planta em escala, entre outras.
 
+### Competição
+
+Gamificação para a turma, sem servidor e sem cadastro:
+
+1. **O professor monta a competição**: escolhe os temas (por padrão, Problemas complexos), a quantidade de questões (5, 10, 15 ou 20), o nível e se a calculadora é permitida. O app gera um **código da competição**.
+2. **Os alunos digitam o código** no próprio celular e todos recebem **as mesmas questões, na mesma ordem**. Uma tentativa por questão, sem dicas, com cronômetro.
+3. **Pontuação**: 100, 125 ou 150 pontos por acerto, conforme o nível, mais bônus de até 50 pontos por acertos seguidos. Desempate por acertos e depois pelo menor tempo.
+4. Ao terminar, cada aluno recebe um **código de resultado**. O professor digita nome e código, e o app monta o **ranking com pódio**. Códigos de outra competição ou repetidos são recusados.
+
+O ranking fica salvo no aparelho do professor; o código da competição pode ser reaberto depois.
+
 ### Em cada habilidade
 
 - **Explicação curta** com desenhos e um **exemplo resolvido** passo a passo (com botão para gerar outro exemplo).

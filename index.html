@@ -346,6 +346,42 @@ input[type=checkbox]{width:1.1em;height:1.1em;accent-color:var(--azul);vertical-
 .desafio-card .glifo{display:flex;justify-content:center;padding-top:4px}
 .aviso-perigo{display:flex;align-items:center;gap:14px;border:2.5px dashed #E0A800;border-radius:var(--rabisco-p);padding:10px 14px;font-family:var(--mao);font-weight:700;font-size:1.1rem}
 .perigo{flex:none}
+/* Competição */
+.comp-card{border-top-color:#2152B0!important}
+.comp-card .glifo{display:flex;justify-content:center;padding-top:2px}
+.comp-abas{display:flex;gap:8px;margin:14px 0}
+.comp-abas button{flex:1;border:2px solid var(--tinta);background:var(--folha);border-radius:var(--rabisco-p);padding:8px;font-size:1.1rem}
+.comp-abas button[aria-selected="true"]{background:var(--tinta);color:var(--papel)}
+.comp-form{display:flex;flex-direction:column;gap:10px;max-width:420px}
+.comp-form label{display:flex;flex-direction:column;gap:2px}
+.comp-form input,.comp-sel select,.comp-add input{font-family:var(--caneta);font-size:1.1rem;padding:6px 10px;border:2px solid var(--borda);border-radius:var(--rabisco-p);background:var(--folha);color:var(--tinta)}
+#comp-codigo,#rk-codigo,#comp-abrir-cod{font-family:var(--mono);text-transform:uppercase;letter-spacing:.06em}
+.comp-temas{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:6px 14px;margin:8px 0}
+.comp-tema{cursor:pointer}
+.comp-sel{display:flex;flex-wrap:wrap;gap:10px 18px;align-items:center;margin:10px 0}
+.comp-codigo-grande{font-family:var(--mono);font-size:clamp(1.8rem,7vw,3.2rem);letter-spacing:.08em;text-align:center;padding:14px;border:3px dashed var(--azul);border-radius:var(--rabisco);margin:10px 0;user-select:all;color:var(--azul)}
+.comp-add{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.comp-add input{flex:1;min-width:9em}
+.rk-tabela{border-collapse:collapse;width:100%;margin-top:10px;font-size:1.05rem}
+.rk-tabela th,.rk-tabela td{border-bottom:1.5px dashed var(--borda);padding:5px 8px;text-align:left}
+.rk-tabela th{font-family:var(--mao);color:var(--vermelho)}
+.rk-del{border:0;background:none;color:var(--tinta-2);font-size:1rem}
+.podio{display:flex;justify-content:center;align-items:flex-end;gap:8px;margin:16px 0 4px}
+.degrau{display:flex;flex-direction:column;align-items:center;width:31%;max-width:150px;text-align:center}
+.degrau .med{font-size:2rem;line-height:1}
+.degrau .pn{font-family:var(--mao);font-weight:700;font-size:1.05rem;overflow-wrap:anywhere}
+.degrau .pp{font-size:.95rem;color:var(--tinta-2)}
+.degrau .bloco{width:100%;background:var(--azul-claro);border:2px solid var(--tinta);border-bottom:0;border-radius:6px 6px 0 0;font-family:var(--canetao);font-size:1.4rem;padding-top:6px}
+.degrau.d1 .bloco{height:96px;background:#F6E7A6;color:#1D2A4A}.degrau.d2 .bloco{height:70px}.degrau.d3 .bloco{height:52px}
+.comp-barra{display:flex;flex-wrap:wrap;gap:6px 16px;align-items:center;font-family:var(--mao);font-weight:700;font-size:1.1rem}
+.comp-barra #cp-pontos{color:var(--azul)} .comp-barra #cp-seq{color:var(--laranja)} .comp-barra #cp-tempo{margin-left:auto;color:var(--tinta-2)}
+#cp-pontos.pulo{animation:pulo .5s ease-out}
+@keyframes pulo{40%{transform:scale(1.35)}}
+.cp-tag{margin-left:auto;font-size:.85rem;color:var(--tinta-2);white-space:nowrap}
+#cp-item{margin-top:14px}
+.fim-comp{text-align:center;padding:10px 0}
+.fim-comp h2{font-family:var(--canetao);font-weight:400;font-size:1.8rem;margin:.3em 0}
+.fim-num{font-size:1.2rem}
 /* Imprimir folha */
 .acoes-folha{display:flex;flex-direction:column;align-items:flex-end;gap:8px}
 .imprimir{display:flex;flex-wrap:wrap;align-items:center;gap:6px;font-size:1rem;color:var(--tinta-2)}
@@ -430,6 +466,8 @@ input[type=checkbox]{width:1.1em;height:1.1em;accent-color:var(--azul);vertical-
     <div class="temas" id="temas"></div>
     <button class="tema termos-card desafio-card" data-abrir="desafio-problemas"><span class="glifo" aria-hidden="true"><svg class="perigo" width="52" height="52" viewBox="0 0 64 64"><path d="M32 6 L59 55 Q60 58 57 58 L7 58 Q4 58 5 55 Z" fill="#F6C430" stroke="#1D2A4A" stroke-width="3.5" stroke-linejoin="round"/><path d="M32 22 L31 40" stroke="#1D2A4A" stroke-width="5.5" stroke-linecap="round"/><circle cx="31.5" cy="48" r="3.4" fill="#1D2A4A"/></svg></span>
       <span><span class="nome">Problemas complexos</span><span class="desc">Questões com texto que juntam várias habilidades, no estilo de concursos, ENEM e provas. Para quem quer se testar de verdade.</span><span class="prog" id="prog-desafio"></span></span></button>
+    <button class="tema termos-card comp-card" data-ir="competicao"><span class="glifo" aria-hidden="true"><svg width="50" height="50" viewBox="0 0 64 64"><path d="M18 8 H46 V24 Q46 40 32 42 Q18 40 18 24 Z" fill="#F6C430" stroke="#1D2A4A" stroke-width="3" stroke-linejoin="round"/><path d="M18 14 H9 Q8 28 20 30 M46 14 H55 Q56 28 44 30" fill="none" stroke="#1D2A4A" stroke-width="3" stroke-linecap="round"/><path d="M32 42 V50 M22 56 H42 L39 50 H25 Z" fill="#F6C430" stroke="#1D2A4A" stroke-width="3" stroke-linejoin="round"/><path d="M32 15 l2.6 5.4 5.9.8-4.3 4.1 1 5.8-5.2-2.8-5.2 2.8 1-5.8-4.3-4.1 5.9-.8z" fill="#fff" stroke="#1D2A4A" stroke-width="1.5" stroke-linejoin="round"/></svg></span>
+      <span><span class="nome">Competição</span><span class="desc">Desafie a turma: todos recebem as mesmas questões, valendo pontos, sequência de acertos e tempo. O professor monta o ranking com pódio.</span></span></button>
     <button class="tema termos-card" data-ir="imprimir"><span class="glifo" aria-hidden="true">🖨</span>
       <span><span class="nome">Imprimir folha</span><span class="desc">Monte uma lista em papel: escolha os assuntos, o nível e quantos exercícios de cada um. Sai com gabarito.</span></span></button>
     <button class="tema termos-card" data-ir="termos"><span class="glifo" aria-hidden="true">Aa</span>
@@ -447,6 +485,49 @@ input[type=checkbox]{width:1.1em;height:1.1em;accent-color:var(--azul);vertical-
     <p class="muted">Em todo o Matematicar, as palavras técnicas aparecem sublinhadas. Toque numa delas para ver o significado.</p>
     <input class="busca" id="busca-termo" type="search" placeholder="Buscar termo" aria-label="Buscar termo" autocomplete="off">
     <div id="termos-lista"></div>
+  </section>
+
+  <!-- COMPETIÇÃO -->
+  <section id="tela-competicao" hidden>
+    <button class="voltar" data-ir="inicio">Voltar ao início</button>
+    <h1>Competição</h1>
+    <p class="muted">Todos recebem as mesmas questões, na mesma ordem. Cada acerto vale de 100 a 150 pontos, conforme o nível, e acertos seguidos dão bônus. Sem dicas e com uma tentativa por questão.</p>
+    <div class="comp-abas" role="tablist"><button data-papel="aluno" role="tab" aria-selected="true">Sou aluno</button><button data-papel="prof" role="tab" aria-selected="false">Sou professor</button></div>
+    <div id="comp-aluno" class="comp-form">
+      <label>Seu nome <input id="comp-nome" autocomplete="off" maxlength="30"></label>
+      <label>Código da competição <input id="comp-codigo" autocomplete="off" spellcheck="false" maxlength="16" placeholder="XXXX-XXXX-XX"></label>
+      <div class="msg-cod" id="comp-msg"></div>
+      <button class="bt primario" id="comp-entrar">Começar</button>
+    </div>
+    <div id="comp-prof" hidden>
+      <h2>1. Monte a competição</h2>
+      <div class="comp-temas" id="comp-temas"></div>
+      <div class="comp-sel"><select id="comp-qtd" aria-label="Quantidade de questões"></select><select id="comp-nivel" aria-label="Nível"></select>
+        <label><input type="checkbox" id="comp-calc"> Permitir calculadora</label></div>
+      <div class="msg-cod" id="comp-prof-msg"></div>
+      <button class="bt primario" id="comp-gerar">Gerar código</button>
+      <p class="muted" style="margin-top:14px">Já tem um código? <input id="comp-abrir-cod" class="busca" style="width:12em;display:inline-block;margin:0 6px" placeholder="XXXX-XXXX-XX"><button class="bt leve pequeno" id="comp-abrir">Abrir ranking</button></p>
+      <div id="comp-painel" hidden>
+        <h2>2. Passe o código para a turma</h2>
+        <div class="comp-codigo-grande" id="comp-codigo-prof"></div>
+        <p class="muted" id="comp-resumo"></p>
+        <button class="bt leve pequeno" id="comp-testar">Jogar esta competição (teste)</button>
+        <h2>3. Ranking</h2>
+        <p class="muted">Ao terminar, cada aluno recebe um código de resultado. Digite o nome e o código aqui. O ranking fica salvo neste aparelho.</p>
+        <div class="comp-add"><input id="rk-nome" placeholder="Nome do aluno" maxlength="30"><input id="rk-codigo" placeholder="Código de resultado" spellcheck="false" maxlength="18"><button class="bt primario pequeno" id="rk-add">Adicionar</button></div>
+        <div class="msg-cod" id="rk-msg"></div>
+        <div id="rk-podio"></div>
+        <table class="rk-tabela" id="rk-tabela"></table>
+        <p style="margin-top:12px"><button class="bt leve pequeno" id="rk-limpar">Limpar ranking</button></p>
+      </div>
+    </div>
+  </section>
+
+  <section id="tela-competir" hidden>
+    <div class="comp-barra"><span id="cp-prog"></span><span id="cp-pontos"></span><span id="cp-seq"></span><span id="cp-tempo"></span></div>
+    <div class="trilho"><span id="cp-trilho" style="width:0"></span></div>
+    <article class="item" id="cp-item"></article>
+    <div id="cp-fim" hidden></div>
   </section>
 
   <!-- MONTAR FOLHA PARA IMPRIMIR -->
@@ -618,7 +699,7 @@ function barra(n, d, cor = 'azul') {
 const MSG_GENERICA = 'Ainda não. Confira os passos ou peça uma dica.';
 
 // Resposta inteira: q.resp e q.erros = [{v, msg}]
-const perto = (a, b) => Math.abs(a - b) <= 1e-6 * Math.max(1, Math.abs(b));
+const perto = (a, b) => Number.isInteger(a) && Number.isInteger(b) ? a === b : Math.abs(a - b) <= 1e-9 * Math.max(1, Math.abs(b));
 function checarInt(q, r) {
   if (perto(r.x, q.resp)) return { st: 'ok', msg: 'Correto.' };
   for (const e of q.erros || []) if (!perto(e.v, q.resp) && perto(r.x, e.v)) return { st: 'erro', msg: e.msg };
@@ -3095,12 +3176,15 @@ let temaAtual = null, atualId = null, folha = null;
 
 function mostrar(tela) {
   if (tela === 'tema' && topico(temaAtual).especial) tela = 'inicio';   // Problemas complexos não tem lista de habilidades
-  for (const t of ['inicio', 'termos', 'imprimir', 'tema', 'aprender', 'folha']) $('#tela-' + t).hidden = t !== tela;
+  if (tela !== 'competir' && comp && !comp.fim) { if (!confirm('Sair da competição? As respostas desta rodada serão perdidas.')) return; comp = null; clearInterval(compRelogio); }
+  for (const t of ['inicio', 'termos', 'imprimir', 'competicao', 'competir', 'tema', 'aprender', 'folha']) $('#tela-' + t).hidden = t !== tela;
   $('#bt-calc').hidden = tela !== 'folha' || !$('#calc').hidden || calcDesligada();
   const especial = temaAtual && topico(temaAtual).especial;
-  const destinoVoltar = { termos: 'inicio', imprimir: 'inicio', tema: 'inicio', aprender: especial ? 'inicio' : 'tema', folha: especial ? 'aprender' : 'tema' }[tela];
+  const destinoVoltar = { termos: 'inicio', imprimir: 'inicio', competicao: 'inicio', competir: 'competicao', tema: 'inicio', aprender: especial ? 'inicio' : 'tema', folha: especial ? 'aprender' : 'tema' }[tela];
   $('#voltar-topo').hidden = !destinoVoltar; $('#voltar-topo').dataset.destino = destinoVoltar || '';
-  if (tela !== 'folha') fecharCalc();
+  if (tela !== 'folha' && tela !== 'competir') fecharCalc();
+  if (tela === 'competir') $('#bt-calc').hidden = !calcNaComp() || !$('#calc').hidden;
+  if (tela === 'competicao') renderCompeticao();
   if (tela === 'inicio') renderInicio();
   if (tela === 'termos') renderTermos();
   if (tela === 'imprimir') renderMontagem();
@@ -3454,6 +3538,13 @@ document.addEventListener('click', e => {
   if (e.target.closest('[data-novos]')) { novosExercicios(); return; }
   const qb = e.target.closest('.qtd button'); if (qb) { estado.qtd = +qb.dataset.qtd; salvar(); novosExercicios(); return; }
   const item = e.target.closest('.item'); if (!item) return;
+  if (item.id === 'cp-item') {   // questão da competição
+    const sn = e.target.closest('.sinal');
+    if (sn && !sn.disabled) { comp.sinal = sn.dataset.s; item.querySelectorAll('.sinal').forEach(b => b.classList.toggle('marcado', b === sn)); responderComp(); }
+    else if (e.target.closest('#cp-responder')) responderComp();
+    else if (e.target.closest('#cp-proxima')) proximaComp();
+    return;
+  }
   const i = +item.dataset.i;
   const sn = e.target.closest('.sinal');
   if (sn && !sn.disabled) {
@@ -3553,8 +3644,8 @@ function calcTecla(k) {
   calcExp.value += k;
 }
 function abrirCalc() { document.body.classList.add('calc-aberta'); calcEl.hidden = false; $('#bt-calc').hidden = true; $('#bt-calc').setAttribute('aria-expanded', 'true'); calcExp.focus(); }
-function fecharCalc() { document.body.classList.remove('calc-aberta'); calcEl.hidden = true; $('#bt-calc').setAttribute('aria-expanded', 'false'); if (!$('#tela-folha').hidden && !calcDesligada()) $('#bt-calc').hidden = false; }
-$('#bt-calc').onclick = () => { if (!calcDesligada()) abrirCalc(); };
+function fecharCalc() { document.body.classList.remove('calc-aberta'); calcEl.hidden = true; $('#bt-calc').setAttribute('aria-expanded', 'false'); if ((!$('#tela-folha').hidden && !calcDesligada()) || (!$('#tela-competir').hidden && calcNaComp())) $('#bt-calc').hidden = false; }
+$('#bt-calc').onclick = () => { if ($('#tela-competir').hidden ? !calcDesligada() : calcNaComp()) abrirCalc(); };
 $('#calc-fechar').onclick = fecharCalc;
 $('#calc-teclas').addEventListener('click', e => { const b = e.target.closest('[data-k]'); if (b) calcTecla(b.dataset.k); });
 calcExp.addEventListener('keydown', e => { if (e.key === 'Enter') { e.preventDefault(); calcIgual(); } else if (e.key === 'Escape') fecharCalc(); });
@@ -3594,6 +3685,240 @@ function aplicarTema(t) {
 }
 $('#alternar-tema').onclick = () => { const t = document.documentElement.dataset.modo === 'escuro' ? 'claro' : 'escuro'; aplicarTema(t); try { localStorage.setItem('alicerce:tema', t); } catch (e) {} };
 aplicarTema(document.documentElement.dataset.modo === 'escuro' ? 'escuro' : 'claro');
+
+
+// ============ COMPETIÇÃO ============
+// Sem servidor: o código da competição carrega a configuração e uma semente; todos os aparelhos geram as mesmas questões.
+// Ao terminar, o aluno recebe um código de resultado, que o professor digita no ranking.
+const TROFEU = (t = 52) => `<svg width="${t}" height="${t}" viewBox="0 0 64 64" aria-hidden="true"><path d="M18 8 H46 V24 Q46 40 32 42 Q18 40 18 24 Z" fill="#F6C430" stroke="#1D2A4A" stroke-width="3" stroke-linejoin="round"/>
+  <path d="M18 14 H9 Q8 28 20 30 M46 14 H55 Q56 28 44 30" fill="none" stroke="#1D2A4A" stroke-width="3" stroke-linecap="round"/><path d="M32 42 V50 M22 56 H42 L39 50 H25 Z" fill="#F6C430" stroke="#1D2A4A" stroke-width="3" stroke-linejoin="round"/>
+  <path d="M32 15 l2.6 5.4 5.9.8-4.3 4.1 1 5.8-5.2-2.8-5.2 2.8 1-5.8-4.3-4.1 5.9-.8z" fill="#fff" stroke="#1D2A4A" stroke-width="1.5" stroke-linejoin="round"/></svg>`;
+const QTDS_COMP = [5, 10, 15, 20];
+const NIVEIS_COMP = ['Misto (fácil → difícil)', 'Fácil', 'Médio', 'Difícil'];
+const PONTOS_NIVEL = [100, 125, 150];
+function semente(seed) {   // mulberry32
+  let a = seed >>> 0;
+  return () => { a = (a + 0x6D2B79F5) >>> 0; let t = a; t = Math.imul(t ^ (t >>> 15), t | 1); t ^= t + Math.imul(t ^ (t >>> 7), t | 61); return ((t ^ (t >>> 14)) >>> 0) / 4294967296; };
+}
+const fmtTempo = s => `${Math.floor(s / 60)}:${String(Math.floor(s % 60)).padStart(2, '0')}`;
+const MASC_COMP = 0x3C5A96E1D2B4n, MASC_RES = 0x2D69A5C3B1E7F4n;
+function paraCodigo(bitsPayload, nbits, masc, tamanho) {
+  let p = bitsPayload ^ (masc & ((1n << BigInt(nbits)) - 1n)), v = p * 1024n + hash10(p), s = '';
+  for (let i = 0; i < tamanho; i++) { s = ALFA[Number(v % 32n)] + s; v /= 32n; }
+  return s.match(/.{1,4}/g).join('-');
+}
+function deCodigo(txt, nbits, masc, tamanho) {
+  const t = limparCodigo(txt); if (t.length !== tamanho) return null;
+  const v = lerAlfa(t); if (v === null) return null;
+  const p = v / 1024n; if (hash10(p) !== v % 1024n || p >> BigInt(nbits) !== 0n) return null;
+  return p ^ (masc & ((1n << BigInt(nbits)) - 1n));
+}
+// Código da competição: versão (2) · temas (11) · quantidade (2) · nível (2) · calculadora (1) · semente (20) = 38 bits → 10 caracteres.
+const TAM_COMP = 10, BITS_COMP = 38;
+function codificarComp(c) {
+  let p = 1n;
+  p = (p << 11n) | BigInt(c.temas); p = (p << 2n) | BigInt(c.qi); p = (p << 2n) | BigInt(c.nivel); p = (p << 1n) | (c.calc ? 1n : 0n); p = (p << 20n) | BigInt(c.seed);
+  return paraCodigo(p, BITS_COMP, MASC_COMP, TAM_COMP);
+}
+function decodificarComp(txt) {
+  let p = deCodigo(txt, BITS_COMP, MASC_COMP, TAM_COMP); if (p === null) return null;
+  const seed = Number(p & 0xFFFFFn); p >>= 20n; const calc = (p & 1n) === 1n; p >>= 1n; const nivel = Number(p & 3n); p >>= 2n;
+  const qi = Number(p & 3n); p >>= 2n; const temas = Number(p & 0x7FFn); p >>= 11n;
+  if (p !== 1n || !temas) return null;
+  return { temas, qi, n: QTDS_COMP[qi], nivel, calc, seed, codigo: codificarComp({ temas, qi, nivel, calc, seed }) };
+}
+const idComp = codigo => Number(hash10(lerAlfa(limparCodigo(codigo)) || 0n));
+// Código de resultado: versão (2) · competição (10) · questões (5) · acertos (5) · pontos (13) · tempo em s (13) = 48 bits → 12 caracteres.
+const TAM_RES = 12, BITS_RES = 48;
+function codificarRes(r) {
+  let p = 2n;
+  for (const [v, b] of [[r.comp, 10], [r.n, 5], [r.acertos, 5], [Math.min(r.pontos, 8191), 13], [Math.min(Math.round(r.tempo), 8191), 13]]) p = (p << BigInt(b)) | BigInt(v);
+  return paraCodigo(p, BITS_RES, MASC_RES, TAM_RES);
+}
+function decodificarRes(txt) {
+  let p = deCodigo(txt, BITS_RES, MASC_RES, TAM_RES); if (p === null) return null;
+  const tempo = Number(p & 8191n); p >>= 13n; const pontos = Number(p & 8191n); p >>= 13n; const acertos = Number(p & 31n); p >>= 5n;
+  const n = Number(p & 31n); p >>= 5n; const comp = Number(p & 1023n); p >>= 10n;
+  if (p !== 2n || acertos > n) return null;
+  return { comp, n, acertos, pontos, tempo };
+}
+// As questões saem iguais em todos os aparelhos: o sorteio usa a semente no lugar de Math.random.
+function questoesComp(c) {
+  const rnd0 = Math.random; Math.random = semente(c.seed * 7919 + c.temas);
+  try {
+    const temas = TOPICOS.filter((t, i) => c.temas & (1 << i));
+    const pool = temas.flatMap(t => t.habs), lista = [];
+    let ordem = [];
+    for (let i = 0; i < c.n; i++) {
+      if (!ordem.length) ordem = embaralhar(pool);
+      const s = ordem.pop(), nv = c.nivel === 0 ? (i < c.n / 3 ? 0 : i < 2 * c.n / 3 ? 1 : 2) : c.nivel - 1;
+      const q = gerarQuestoesDe(s, 1, () => nv)[0]; q._hab = s.id; q._nv = nv; lista.push(q);
+    }
+    return lista;
+  } finally { Math.random = rnd0; }
+}
+
+// ---------- Professor: montar e ranking ----------
+let compProf = null;
+function renderCompeticao() {
+  if (!$('#comp-temas').dataset.pronto) {
+    $('#comp-temas').innerHTML = TOPICOS.map((t, i) => `<label class="comp-tema"><input type="checkbox" value="${i}"${t.id === 'desafio' ? ' checked' : ''}> ${t.nome}</label>`).join('');
+    $('#comp-qtd').innerHTML = QTDS_COMP.map((n, i) => `<option value="${i}"${n === 10 ? ' selected' : ''}>${n} questões</option>`).join('');
+    $('#comp-nivel').innerHTML = NIVEIS_COMP.map((n, i) => `<option value="${i}">${n}</option>`).join('');
+    $('#comp-temas').dataset.pronto = '1';
+  }
+}
+function papel(p) {
+  document.querySelectorAll('[data-papel]').forEach(b => b.setAttribute('aria-selected', String(b.dataset.papel === p)));
+  $('#comp-aluno').hidden = p !== 'aluno'; $('#comp-prof').hidden = p !== 'prof';
+}
+function gerarCompeticao() {
+  const temas = [...document.querySelectorAll('#comp-temas input:checked')].reduce((m, c) => m | (1 << +c.value), 0);
+  if (!temas) { $('#comp-prof-msg').className = 'msg-cod erro'; $('#comp-prof-msg').textContent = 'Marque pelo menos um tema.'; return; }
+  $('#comp-prof-msg').textContent = '';
+  const c = { temas, qi: +$('#comp-qtd').value, nivel: +$('#comp-nivel').value, calc: $('#comp-calc').checked, seed: Math.floor(Math.random() * 1048576) };
+  abrirPainel(decodificarComp(codificarComp(c)));
+}
+function abrirPainel(c) {
+  compProf = c;
+  $('#comp-codigo-prof').textContent = c.codigo;
+  const temas = TOPICOS.filter((t, i) => c.temas & (1 << i)).map(t => t.nome);
+  $('#comp-resumo').textContent = `${c.n} questões · ${NIVEIS_COMP[c.nivel]} · ${c.calc ? 'com' : 'sem'} calculadora · ${temas.join(', ')}`;
+  $('#comp-painel').hidden = false; renderRanking();
+  $('#comp-painel').scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+const chaveRk = c => 'matematicar:ranking:' + limparCodigo(c);
+function lerRanking(c) { try { return JSON.parse(localStorage.getItem(chaveRk(c))) || []; } catch (e) { return []; } }
+function gravarRanking(c, l) { try { localStorage.setItem(chaveRk(c), JSON.stringify(l)); } catch (e) {} }
+const ordenarRk = l => l.slice().sort((a, b) => b.pontos - a.pontos || b.acertos - a.acertos || a.tempo - b.tempo);
+function renderRanking() {
+  const l = ordenarRk(lerRanking(compProf.codigo)), MED = ['🥇', '🥈', '🥉'];
+  $('#rk-podio').innerHTML = l.length ? `<div class="podio">${[1, 0, 2].filter(i => l[i]).map(i => `<div class="degrau d${i + 1}"><span class="med">${MED[i]}</span><span class="pn">${esc(l[i].nome)}</span><span class="pp">${l[i].pontos} pts</span><span class="bloco">${i + 1}º</span></div>`).join('')}</div>` : '<p class="muted">Ninguém no ranking ainda.</p>';
+  $('#rk-tabela').innerHTML = l.length ? `<tr><th>#</th><th>Nome</th><th>Acertos</th><th>Pontos</th><th>Tempo</th><th></th></tr>` + l.map((x, i) =>
+    `<tr><td>${i < 3 ? MED[i] : i + 1}</td><td>${esc(x.nome)}</td><td>${x.acertos}/${x.n}</td><td><b>${x.pontos}</b></td><td>${fmtTempo(x.tempo)}</td><td><button class="rk-del" data-del="${x.codigo}" aria-label="Remover ${esc(x.nome)}">✕</button></td></tr>`).join('') : '';
+}
+function adicionarRk() {
+  const m = $('#rk-msg'), nome = $('#rk-nome').value.trim(), cod = $('#rk-codigo').value, r = decodificarRes(cod);
+  const erro = t => { m.className = 'msg-cod erro'; m.textContent = t; };
+  if (!nome) return erro('Digite o nome do aluno.');
+  if (!r) return erro('Código de resultado inválido. Confira as letras e os números.');
+  if (r.comp !== idComp(compProf.codigo) || r.n !== compProf.n) return erro('Esse código é de outra competição.');
+  const l = lerRanking(compProf.codigo), c = limparCodigo(cod);
+  if (l.some(x => x.codigo === c)) return erro('Esse resultado já está no ranking.');
+  l.push({ nome, codigo: c, ...r }); gravarRanking(compProf.codigo, l);
+  m.className = 'msg-cod ok'; m.textContent = `${nome} entrou no ranking com ${r.pontos} pontos.`;
+  $('#rk-nome').value = ''; $('#rk-codigo').value = ''; $('#rk-nome').focus(); renderRanking();
+}
+
+// ---------- Aluno: jogar ----------
+let comp = null, compRelogio = null;
+const chaveFeito = c => 'matematicar:feito:' + limparCodigo(c);
+function entrarCompeticao(codigoTxt, nome, teste = false) {
+  const c = decodificarComp(codigoTxt), m = $('#comp-msg');
+  if (!c) { m.className = 'msg-cod erro'; m.textContent = 'Código da competição inválido. Confira com o professor.'; return; }
+  if (!teste) { let feito = null; try { feito = JSON.parse(localStorage.getItem(chaveFeito(c.codigo))); } catch (e) {}
+    if (feito) { comp = { c, nome: feito.nome, fim: true, teste: false }; mostrar('competir'); mostrarFimComp(feito); return; } }
+  m.textContent = '';
+  comp = { c, nome: nome || 'Aluno', teste, qs: questoesComp(c), i: 0, pontos: 0, acertos: 0, seq: 0, inicio: performance.now(), respondida: false, fim: false };
+  mostrar('competir'); renderQuestaoComp();
+  clearInterval(compRelogio); compRelogio = setInterval(() => { if (comp && !comp.fim) $('#cp-tempo').textContent = '⏱ ' + fmtTempo((performance.now() - comp.inicio) / 1000); }, 500);
+}
+function renderQuestaoComp() {
+  const q = comp.qs[comp.i]; atualId = q._hab; temaAtual = hab(q._hab).topico; comp.respondida = false; comp.sinal = null;
+  $('#cp-prog').textContent = `Questão ${comp.i + 1} de ${comp.c.n}`;
+  $('#cp-pontos').textContent = `${comp.pontos} pts`;
+  $('#cp-seq').textContent = comp.seq >= 2 ? `🔥 ${comp.seq} seguidas` : '';
+  $('#cp-trilho').style.width = (100 * comp.i / comp.c.n) + '%';
+  $('#cp-item').hidden = false; $('#cp-fim').hidden = true;
+  $('#cp-item').innerHTML = `
+    <div class="item-cab"><span class="item-num">${comp.i + 1})</span><p class="enun">${MT(q.enun)}</p><span class="cp-tag">${topico(temaAtual).nome} · vale ${PONTOS_NIVEL[q._nv]}</span></div>
+    ${q.visual || ''}
+    <div class="expr">${q.expr.replace('{{entrada}}', entradaHTML(q))}</div>
+    <div class="nota" role="status" aria-live="polite"></div>
+    <div class="caminho"><span class="rot-caminho">✎ Rascunho (sem feedback)</span><div class="linhas">${linhaHTML(true)}</div></div>
+    <div class="acoes-item"><button class="bt primario" id="cp-responder">Responder</button><button class="bt primario" id="cp-proxima" hidden></button></div>`;
+  $('#bt-calc').hidden = !calcNaComp() || !$('#calc').hidden;
+  if (!calcNaComp()) fecharCalc();
+  const f = $('#cp-item [data-campo]'); if (f) f.focus({ preventScroll: true });
+  window.scrollTo(0, 0);
+}
+const calcNaComp = () => !!comp && !comp.fim && comp.c.calc && !calcDesligada();
+function lerRespostaComp() {
+  const q = comp.qs[comp.i];
+  if (q.tipo === 'escolha') return comp.sinal ? { r: { s: comp.sinal } } : { aviso: 'Toque em uma das opções.' };
+  const out = {}; let conta = false;
+  for (const inp of $('#cp-item').querySelectorAll('[data-campo]')) {
+    let lido; try { lido = lerCampo(inp.value); } catch (e) { return { aviso: `Não entendi a resposta: ${e.message}` }; }
+    if (!lido) return { aviso: 'Preencha a resposta no quadro azul.' };
+    if (['fracao', 'entre', 'radical', 'divresto', 'num'].includes(q.tipo) && (!lido.r || lido.r.d !== 1)) return { aviso: 'Use números inteiros nos quadros.' };
+    conta = conta || lido.conta; out[inp.dataset.campo] = lido.r ? (lido.r.d === 1 ? lido.r.n : lido.r.n / lido.r.d) : lido.x;
+  }
+  if (conta && hab(q._hab).topico === 'ops') return { aviso: 'Neste tema, escreva só o resultado.' };
+  return { r: out };
+}
+function responderComp() {
+  if (comp.respondida) return;
+  const q = comp.qs[comp.i], lido = lerRespostaComp(), nota = $('#cp-item .nota');
+  if (lido.aviso) { nota.className = 'nota aviso'; nota.textContent = lido.aviso; return; }
+  const res = hab(q._hab).verificar(q, lido.r);
+  if (res.invalido) { nota.className = 'nota aviso'; nota.innerHTML = MT(res.msg); return; }
+  comp.respondida = true;
+  const certo = res.st === 'ok';
+  if (certo) {
+    comp.seq++; comp.acertos++;
+    const bonus = Math.min(50, 10 * (comp.seq - 1)), ganho = PONTOS_NIVEL[q._nv] + bonus; comp.pontos += ganho;
+    nota.className = 'nota ok'; nota.innerHTML = `Correto! +${ganho} pontos${bonus ? ` <span class="extra">(${PONTOS_NIVEL[q._nv]} da questão + ${bonus} pela sequência)</span>` : ''}`;
+    $('#cp-pontos').textContent = `${comp.pontos} pts`; $('#cp-pontos').classList.remove('pulo'); void $('#cp-pontos').offsetWidth; $('#cp-pontos').classList.add('pulo');
+  } else {
+    comp.seq = 0;
+    nota.className = 'nota erro'; nota.innerHTML = `${res.st === 'quase' ? 'Quase, mas não vale.' : 'Não foi dessa vez.'} <span class="extra">Resposta certa: ${respostaTexto(q)}</span>`;
+  }
+  $('#cp-seq').textContent = comp.seq >= 2 ? `🔥 ${comp.seq} seguidas` : '';
+  $('#cp-item').querySelectorAll('[data-campo], .sinal').forEach(x => x.disabled = true);
+  $('#cp-responder').hidden = true;
+  const ult = comp.i === comp.c.n - 1, bp = $('#cp-proxima'); bp.hidden = false;
+  bp.textContent = ult ? 'Ver resultado' : 'Próxima questão'; bp.focus({ preventScroll: true });
+}
+function proximaComp() {
+  if (comp.i < comp.c.n - 1) { comp.i++; renderQuestaoComp(); return; }
+  comp.fim = true; clearInterval(compRelogio); fecharCalc(); $('#bt-calc').hidden = true;
+  const tempo = Math.round((performance.now() - comp.inicio) / 1000);
+  const r = { nome: comp.nome, n: comp.c.n, acertos: comp.acertos, pontos: comp.pontos, tempo };
+  r.codigo = codificarRes({ comp: idComp(comp.c.codigo), ...r });
+  if (!comp.teste) try { localStorage.setItem(chaveFeito(comp.c.codigo), JSON.stringify(r)); } catch (e) {}
+  mostrarFimComp(r);
+}
+function mostrarFimComp(r) {
+  $('#cp-item').hidden = true; $('#cp-fim').hidden = false; $('#cp-trilho').style.width = '100%';
+  $('#cp-prog').textContent = 'Fim!'; $('#cp-pontos').textContent = `${r.pontos} pts`; $('#cp-seq').textContent = ''; $('#cp-tempo').textContent = '⏱ ' + fmtTempo(r.tempo);
+  const frase = r.acertos === r.n ? 'Gabaritou!' : r.acertos >= r.n * .7 ? 'Mandou bem!' : r.acertos >= r.n * .4 ? 'Bom trabalho!' : 'Continue treinando!';
+  $('#cp-fim').innerHTML = `<div class="fim-comp">${TROFEU(72)}<h2>${frase}</h2>
+    <p class="fim-num"><b>${r.pontos}</b> pontos · ${r.acertos} de ${r.n} acertos · ${fmtTempo(r.tempo)}</p>
+    ${comp.teste ? '<p class="muted">Rodada de teste do professor: o resultado não fica registrado neste aparelho.</p>' : ''}
+    <p>${esc(r.nome)}, mostre este código de resultado ao professor:</p>
+    <div class="codigo">${r.codigo}</div>
+    <p class="muted">Desempate: mais pontos, depois mais acertos, depois menor tempo.</p>
+    <button class="bt leve" data-ir="inicio">Voltar ao início</button></div>`;
+}
+
+document.querySelectorAll('[data-papel]').forEach(b => b.onclick = () => papel(b.dataset.papel));
+$('#comp-entrar').onclick = () => entrarCompeticao($('#comp-codigo').value, $('#comp-nome').value.trim());
+$('#comp-codigo').addEventListener('keydown', e => { if (e.key === 'Enter') $('#comp-entrar').click(); });
+$('#comp-gerar').onclick = gerarCompeticao;
+$('#comp-abrir').onclick = () => { const c = decodificarComp($('#comp-abrir-cod').value); if (c) { $('#comp-prof-msg').textContent = ''; abrirPainel(c); } else { $('#comp-prof-msg').className = 'msg-cod erro'; $('#comp-prof-msg').textContent = 'Código da competição inválido.'; } };
+$('#comp-testar').onclick = () => entrarCompeticao(compProf.codigo, 'Professor (teste)', true);
+$('#rk-add').onclick = adicionarRk;
+$('#rk-codigo').addEventListener('keydown', e => { if (e.key === 'Enter') adicionarRk(); });
+$('#rk-tabela').addEventListener('click', e => { const d = e.target.closest('[data-del]'); if (!d) return; gravarRanking(compProf.codigo, lerRanking(compProf.codigo).filter(x => x.codigo !== d.dataset.del)); renderRanking(); });
+$('#rk-limpar').onclick = () => { if (confirm('Apagar todo o ranking desta competição?')) { gravarRanking(compProf.codigo, []); renderRanking(); } };
+$('#cp-item').addEventListener('input', e => { if (e.target.matches('.passo')) abrirLinha(e.target); });
+$('#cp-item').addEventListener('keydown', e => {
+  if (e.key !== 'Enter' || !e.target.matches('input')) return;
+  e.preventDefault();
+  if (e.target.matches('.passo')) { abrirLinha(e.target); const p = e.target.closest('.linha').nextElementSibling; if (p) p.querySelector('.passo').focus(); return; }
+  const campos = [...$('#cp-item').querySelectorAll('[data-campo]')], vazio = campos.find(c => !c.value.trim() && c !== e.target);
+  if (vazio && campos.indexOf(vazio) > campos.indexOf(e.target)) vazio.focus(); else if (!comp.respondida) responderComp(); else proximaComp();
+});
 
 carregar(); mostrar('inicio');
 </script>
